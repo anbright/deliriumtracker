@@ -4,13 +4,13 @@
     <nav>
       <ul class="nav navbar-nav navbar-right">
         <% if logged_in? %>
-          <li><%= link_to "Dashboard", root_path %></li>
+          <li><%= link_to "Dashboard", root_path, title: "Dashboard" %></li>
         <% end %>
-        <li><%= link_to "Help", help_path %></li>
+        <li><%= link_to "Help", help_path, title: "Help"%></li>
         <% if logged_in? %>
-          <li><%= link_to "Log out", logout_path, method: "delete" %></li>
+          <li><%= link_to "Log out", logout_path, method: "delete", title: "Log out" %></li>
         <% else %>
-          <li><%= link_to "Log in", login_path %></li>
+          <li><%= link_to "Log in", login_path, title: "Log in" %></li>
         <% end %>
       </ul>
     </nav>
