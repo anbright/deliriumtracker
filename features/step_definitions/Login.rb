@@ -18,7 +18,7 @@ When (/^I fill the email and password fields and login$/) do
 end
 
 Then (/^I should be able to sign in successfully and route to my dashboard$/) do
-	assert page.has_content?("test")
+	assert page.has_content?("Welcome to the user dashboard")
 end
 
 
@@ -29,7 +29,7 @@ When (/^I fill the email field with an invalid email$/) do
 end
 
 Then (/^I can't login$/) do
-	assert page.should_have_css('.flashnotice', text: "Invalid email or password")
+	assert page.has_content?("Invalid email")
 end
 
 When (/^I fill the password field with an invalid password$/) do
