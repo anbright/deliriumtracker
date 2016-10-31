@@ -1,13 +1,3 @@
-Given (/^I have made a new account$/) do
-	visit 'sign-up'
-	fill_in 'Name', :with => "Tom"
-	fill_in 'Email', :with => "Tom@seas.upenn.edu"
-	fill_in 'Password', :with =>  "12345678"
-	fill_in 'Confirmation', :with =>  "12345678"
-	click_button "Create my account"
-	
-end
-
 Given (/^I have just logged in$/) do
 	visit root_path
 	fill_in 'Email', :with => "tom@seas.upenn.edu"

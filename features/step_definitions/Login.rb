@@ -1,5 +1,5 @@
 Given (/^I have signed up$/) do
-	visit 'sign-up'
+	visit sign_up_path
 	fill_in 'Name', :with => "Tom"
 	fill_in 'Email', :with => "Tom@seas.upenn.edu"
 	fill_in 'Password', :with =>  "12345678"

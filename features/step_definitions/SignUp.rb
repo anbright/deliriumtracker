@@ -1,5 +1,5 @@
 Given (/^I'm on the user sign up page$/) do
-	visit 'sign-up'
+	visit sign_up_path
 end
 
 When (/^I add a new user$/) do
