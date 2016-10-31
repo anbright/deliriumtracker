@@ -1,4 +1,7 @@
 Feature: User sign up page
+		 As a Provider/User
+		 I want to sign up with my name, email, and password
+	
 	
 	Scenario: Add user
 		Given I'm on the user sign up page
