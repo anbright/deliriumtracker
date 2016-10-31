@@ -1,5 +1,5 @@
 Given (/^I have signed up$/) do
-	visit 'https://deliriumtracker.herokuapp.com/sign-up'
+	visit 'sign-up'
 	fill_in 'Name', :with => "Tom"
 	fill_in 'Email', :with => "Tom@seas.upenn.edu"
 	fill_in 'Password', :with =>  "12345678"
@@ -8,7 +8,7 @@ Given (/^I have signed up$/) do
 end
 
 Given (/^I'm in the user login page$/) do
-	visit 'https://deliriumtracker.herokuapp.com/login'
+	visit root_path
 end
 
 When (/^I fill the email and password fields and login$/) do

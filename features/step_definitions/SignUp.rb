@@ -1,5 +1,5 @@
 Given (/^I'm on the user sign up page$/) do
-	visit 'https://deliriumtracker.herokuapp.com/sign-up'
+	visit 'sign-up'
 end
 
 When (/^I add a new user$/) do

@@ -1,12 +1,23 @@
+Given (/^I have made a new account$/) do
+	visit 'sign-up'
+	fill_in 'Name', :with => "Tom"
+	fill_in 'Email', :with => "Tom@seas.upenn.edu"
+	fill_in 'Password', :with =>  "12345678"
+	fill_in 'Confirmation', :with =>  "12345678"
+	click_button "Create my account"
+	
+end
+
 Given (/^I have just logged in$/) do
-	visit 'https://deliriumtracker.herokuapp.com'
-	fill_in 'Email', :with => "test@email.com"
-	fill_in 'Password', :with =>  "password"
+	visit root_path
+	fill_in 'Email', :with => "tom@seas.upenn.edu"
+	fill_in 'Password', :with =>  "12345678"
 	click_button "Log in"
+	
 end
 
 When (/^I click the logout button in the navbar$/) do
-	click_link('Log out')
+	click_link "Log out"
 end
 
 Then (/^I should be able to successfully logout and see a confirmation$/) do
@@ -14,23 +25,23 @@ Then (/^I should be able to successfully logout and see a confirmation$/) do
 end
 
 Given (/^I'm looking at the Help page after logging in$/) do
-	visit 'https://deliriumtracker.herokuapp.com'
-	fill_in 'Email', :with => "test@email.com"
-	fill_in 'Password', :with =>  "password"
+	visit root_path
+	fill_in 'Email', :with => "tom@seas.upenn.edu"
+	fill_in 'Password', :with =>  "12345678"
 	click_button "Log in"
-	click_on 'Help'
+	click_link "Help"
 end
 
 Given (/^I have received a confirmation of logout$/) do
-	visit 'https://deliriumtracker.herokuapp.com'
-	fill_in 'Email', :with => "test@email.com"
-	fill_in 'Password', :with =>  "password"
-	click_button "Log in"
-	click_on 'Log out'
+	assert page.has_content?("You have successfully logged out!")
+end
+
+Given (/^I logged out$/) do
+	click_link "Log out"
 end
 
 When (/^I click the link to log back in$/) do
-	find('.href', :text => 'here').click
+	click_link "here"
 end
 
 Then (/^I should be taken to the login page$/) do
