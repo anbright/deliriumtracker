@@ -12,17 +12,16 @@ Akshary Chandrasekhar
 Deeptanshu Kapur
 PM: Minsu Kim
 
-##Pages
-/sign-up allows users to sign up and redirects user to user page
+## Pages
 
-\n/login allows users to login to their accounts
-\n/users/:id view a user account
-=======
+### Sign-Up
+Sign-Up allows users to sign up and redirects user to user page
 
-/login allows users to login to their accounts
+### Login
+Allows users to login to their accounts
 
-/users/:id view a user account
-
+### users/:id 
+Viewing details of a user account
 
 ##Features:
 TODO: update latest features
