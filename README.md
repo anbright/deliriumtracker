@@ -14,7 +14,9 @@ PM: Minsu Kim
 
 ##Pages
 /sign-up allows users to sign up and redirects user to user page
+
 /login allows users to login to their accounts
+
 /users/:id view a user account
 
 
