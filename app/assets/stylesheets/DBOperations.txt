@@ -1,0 +1,5 @@
+1. Select -> rows
+2. Project -> columns
+3. Join
+	Combines all permutations of the two tables
+	e.g. Artist.first.songs.joins(:reviews).where("rating > ?", 3)
