@@ -10,19 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161104155438) do
+ActiveRecord::Schema.define(version: 20161104163507) do
 
   create_table "patients", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "patient_id"
   end
 
   create_table "patients_users", force: :cascade do |t|
-    t.integer "users_id"
-    t.integer "patients_id"
-    t.index ["patients_id"], name: "index_patients_users_on_patients_id"
-    t.index ["users_id"], name: "index_patients_users_on_users_id"
+    t.integer "patient_id"
+    t.integer "user_id"
+    t.index ["patient_id"], name: "index_patients_users_on_patient_id"
+    t.index ["user_id"], name: "index_patients_users_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -31,6 +32,7 @@ ActiveRecord::Schema.define(version: 20161104155438) do
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
     t.string   "password_digest"
+    t.integer  "user_id"
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
