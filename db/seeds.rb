@@ -12,5 +12,7 @@
 
 # User.create!(name: 'test', email: 'test@example.com', password: User.digest('password'))
 # User.first.patients.create(name: 'Robert')
-User.first.patients.create(name: 'Jane')
+
+##Creating Accelerometer Data
+Accelerometer.create!
 

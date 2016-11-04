@@ -10,7 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161104163507) do
+ActiveRecord::Schema.define(version: 20161104175351) do
+
+  create_table "accelerometers", force: :cascade do |t|
+    t.integer  "time",       limit: 8
+    t.integer  "user_id"
+    t.float    "x"
+    t.float    "y"
+    t.float    "z"
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+  end
 
   create_table "patients", force: :cascade do |t|
     t.string   "name"

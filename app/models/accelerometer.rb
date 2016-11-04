@@ -1,0 +1,2 @@
+class Accelerometer < ApplicationRecord
+end
