@@ -7,6 +7,7 @@ Rails.application.routes.draw do
 	delete '/logout', to: 'sessions#destroy'
 	
 	get '/help', to: 'users#help'
+	get '/data', to: 'accelerometer#index'
 	
   resources :users
 

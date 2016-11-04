@@ -14,5 +14,16 @@
 # User.first.patients.create(name: 'Robert')
 
 ##Creating Accelerometer Data
-Accelerometer.create!
+Accelerometer.create!(time: 1470938891811, user_id: 1, x: 2.6340000629425, y:-0.143999993801116, z:9.61499977111816)
+
+time = 1470938891811 
+
+def get_rand
+	rand(-10.0..10.0)
+end
+
+5_000.times do
+	time += 50000
+	Accelerometer.create!(time: time, user_id: 1, x: get_rand, y:get_rand, z: get_rand)
+end
 

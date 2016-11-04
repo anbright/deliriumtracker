@@ -1,5 +1,5 @@
 class AccelerometerController < ApplicationController
-	def create
-
+	def index
+		@data = Accelerometer.all
 	end
 end

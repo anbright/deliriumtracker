@@ -1,0 +1,22 @@
+<h1>For testing only</h1>
+<p>Number of records is: <%= @data.size %></p>
+<table>
+	<thead>
+		<th>Time</th>
+		<th>User</th>
+		<th>X</th>
+		<th>Y</th>
+		<th>Z</th>
+	</thead>
+	<tbody>
+		<% @data.first(100).each do |d| %>
+			<tr>
+				<td><%= d.time %></td>
+				<td><%= d.user_id %></td>
+				<td><%= d.x %></td>
+				<td><%= d.y %></td>
+				<td><%= d.z %></td>
+			</tr>
+		<% end %>
+	</tbody>
+</table>
