@@ -6,6 +6,11 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-users = User.create!([
-	{ name: 'foo', email: 'foo@bar.com', password_digest: User.digest('password')}
-	])
+# User.create!([
+# 	{ name: 'foo', email: 'foo@bar.com', password_digest: User.digest('password')}
+# 	])
+
+#User.create!(name: 'test', email: 'test@example.com', password: User.digest('password'))
+User.find(1).patients.create(name: 'Robert')
+# User.find(1).patients.create(name: 'Jane')
+
