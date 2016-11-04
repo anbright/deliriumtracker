@@ -8,8 +8,8 @@ Rails.application.routes.draw do
 	
 	get '/help', to: 'users#help'
 	get '/data', to: 'accelerometer#index'
+	get '/data.json', to: 'accelerometer#api', defaults: { format: 'json' }
 	
   resources :users
 
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
