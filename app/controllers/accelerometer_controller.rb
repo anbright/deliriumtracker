@@ -7,7 +7,7 @@ class AccelerometerController < ApplicationController
 		@data = Accelerometer.all
 		respond_to do |format|
       format.json {
-        render json: @data
+        render :json => @data
       }
     end
 	end

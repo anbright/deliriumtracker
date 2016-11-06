@@ -8,7 +8,7 @@ Rails.application.routes.draw do
 	
 	get '/help', to: 'users#help'
 	get '/data', to: 'accelerometer#index'
-	get '/data.json', to: 'accelerometer#api', defaults: { format: 'json' }
+	get '/api', to: 'accelerometer#api', defaults: { format: 'json' }
 	
   resources :users
 

@@ -10,8 +10,9 @@
 # 	{ name: 'foo', email: 'foo@bar.com', password_digest: User.digest('password')}
 # 	])
 
-# User.create!(name: 'test', email: 'test@example.com', password: User.digest('password'))
-# User.first.patients.create(name: 'Robert')
+User.create!(name: 'test', email: 'test@example.com', password: User.digest('password'))
+User.create!(name: 'foo', email: 'foo@bar.com', password: User.digest('password'))
+
 
 ##Creating Accelerometer Data
 Accelerometer.create!(time: 1470938891811, user_id: 1, x: 2.6340000629425, y:-0.143999993801116, z:9.61499977111816)

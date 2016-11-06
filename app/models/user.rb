@@ -9,9 +9,9 @@ class User < ApplicationRecord
 	has_secure_password
 	validates :password, presence: true, length: { minimum: 6 }
 	def User.digest(string)
-  	cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :
+		cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :
                                                 BCrypt::Engine.cost
-  	BCrypt::Password.create(string, cost: cost)
+  		BCrypt::Password.create(string, cost: cost)
 	end
 
 	has_and_belongs_to_many :patients
