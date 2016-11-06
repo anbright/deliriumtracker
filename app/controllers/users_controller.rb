@@ -5,7 +5,7 @@ class UsersController < ApplicationController
 
   def show
   	@user = User.find(params[:id])
-    @data = User.accelerometers.all
+    @data = User.find(params[:id]).accelerometers.all
   end
 
   def create
