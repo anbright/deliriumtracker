@@ -11,4 +11,9 @@ class AccelerometerController < ApplicationController
       }
     end
 	end
+	
+	private 
+		def api_params
+			#params.require()
+		end
 end
