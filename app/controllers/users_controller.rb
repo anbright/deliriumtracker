@@ -13,7 +13,8 @@ class UsersController < ApplicationController
   def add_patient
     @patient = Patient.find(params[:patient_id])
     @current_user = User.find(params[:id])
-    if @current_user.patients << @patient
+    unless @current_user.patients.include?(@patient)
+      @current_user.patients << @patient
       flash[:success] = "You have successfully added #{@patient.name}"
     else
       flash[:danger] = "Unable to add patient"
