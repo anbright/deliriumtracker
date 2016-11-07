@@ -7,6 +7,7 @@ class UsersController < ApplicationController
   	@user = User.find(params[:id])
     @data = User.find(params[:id]).accelerometers.all
     @patients = User.find(params[:id]).patients.all
+    @other_patients = Patient.all - @patients
   end
   
   #/users/:id/add_patient/:patient_id
@@ -20,6 +21,20 @@ class UsersController < ApplicationController
       flash[:danger] = "Unable to add patient"
     end
     redirect_to action: 'show', id: params[:id]
+    
+  end
+  
+  def remove_patient
+    @patient = Patient.find(params[:patient_id])
+    @current_user = User.find(params[:id])
+    if @current_user.patients.include?(@patient)
+      @current_user.patients.delete @patient
+      flash[:success] = "You have successfully removed #{@patient.name}"
+    else
+      flash[:danger] = "Unable to remove patient"
+    end
+    redirect_to action: 'show', id: params[:id]
+    
   end
 
   def create
@@ -41,4 +56,5 @@ class UsersController < ApplicationController
       params.require(:user).permit(:name, :email, :password,
                                    :password_confirmation)
     end
+    
 end

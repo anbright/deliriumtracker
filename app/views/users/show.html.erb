@@ -1,44 +1,47 @@
 <div class="row">
   <aside class="col-md-4">
     <section class="user_info">
-      <h1>
-        
         <%if logged_in? %>
         	<p>Welcome to the user dashboard, <%= @user.name %>!</p>
         <%end%>
-        
-      </h1>
     </section>
   </aside>
 </div>
 
-<h2>Current Patients</h2>
-<table>
-	<thead>
-	  <th>Patient Name</th>
-	</thead>
-	<tbody>
-		<% @patients.each do |p| %>
-			<tr>
-				<td><%= p.name %></td>
-			</tr>
-		<% end %>
-	</tbody>
-</table>
+<% if logged_in? %>
+	<h2>Current Patients</h2>
+	<table>
+		<thead>
+		  <th>Patient Name</th>
+		</thead>
+		<tbody>
+			<% @patients.each do |p| %>
+				<tr>
+					<td><%= p.name %></td>
+					<td><%= link_to "Remove", :action => 'remove_patient', :id => @user.id, :patient_id => p.id %></td>
+				</tr>
+			<% end %>
+		</tbody>
+	</table>
+	
+	<h2>All Patients</h2>
+	
+	
+	
+	<table>
+		<thead>
+		  <th>Patient Name</th>
+		</thead>
+		<tbody>
+			<% @other_patients.each do |p| %>
+				<tr>
+					<td><%= p.name %></td>
+					<td><%= link_to "Follow", :action => 'add_patient', :id => @user.id, :patient_id => p.id %></td>
+				</tr>
+			<% end %>
+		</tbody>
+	</table>
 
-<h2>Follow more patients</h2>
-
-
-
-<table>
-	<thead>
-	  <th>Patient Name</th>
-	</thead>
-	<tbody>
-		<% @patients.each do |p| %>
-			<tr>
-				<td><%= p.name %></td>
-			</tr>
-		<% end %>
-	</tbody>
-</table>
+<% else %>
+	<h1>You must be logged in to view this.</h1>
+<% end %>
