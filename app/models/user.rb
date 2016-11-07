@@ -14,7 +14,7 @@ class User < ApplicationRecord
   		BCrypt::Password.create(string, cost: cost)
 	end
 
-	has_and_belongs_to_many :patients
+	has_and_belongs_to_many :patients, :uniq => true
 	
 	has_many :accelerometers
 end

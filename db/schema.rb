@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161106222509) do
+ActiveRecord::Schema.define(version: 20161106234920) do
 
   create_table "accelerometers", force: :cascade do |t|
     t.integer  "time",       limit: 8
@@ -27,7 +27,6 @@ ActiveRecord::Schema.define(version: 20161106222509) do
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer  "patient_id"
   end
 
   create_table "patients_users", force: :cascade do |t|
@@ -43,7 +42,6 @@ ActiveRecord::Schema.define(version: 20161106222509) do
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
     t.string   "password_digest"
-    t.integer  "user_id"
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
