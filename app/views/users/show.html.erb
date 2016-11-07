@@ -6,7 +6,39 @@
         <%if logged_in? %>
         	<p>Welcome to the user dashboard, <%= @user.name %>!</p>
         <%end%>
+        
       </h1>
     </section>
   </aside>
 </div>
+
+<h2>Current Patients</h2>
+<table>
+	<thead>
+	  <th>Patient Name</th>
+	</thead>
+	<tbody>
+		<% @patients.each do |p| %>
+			<tr>
+				<td><%= p.name %></td>
+			</tr>
+		<% end %>
+	</tbody>
+</table>
+
+<h2>Follow more patients</h2>
+
+
+
+<table>
+	<thead>
+	  <th>Patient Name</th>
+	</thead>
+	<tbody>
+		<% @patients.each do |p| %>
+			<tr>
+				<td><%= p.name %></td>
+			</tr>
+		<% end %>
+	</tbody>
+</table>
