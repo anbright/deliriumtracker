@@ -13,9 +13,9 @@ class AccelerometerController < ApplicationController
     end
     
     mag = magnitude
-    avg_points = Array.new
+    @avg_points = Array.new
     while mag.count>0
-      avg_points << average_min(mag.shift(12))
+      @avg_points << average_min(mag.shift(12))
     end
     
 	end
