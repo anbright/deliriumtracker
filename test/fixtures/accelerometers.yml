@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  time: 
+  user_id: 1
+  x: 
+  'y': 
+  z: 
+
+two:
+  time: 
+  user_id: 1
+  x: 
+  'y': 
+  z: 
