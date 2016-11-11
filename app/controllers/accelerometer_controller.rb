@@ -27,7 +27,7 @@ class AccelerometerController < ApplicationController
 		respond_to do |format|
 			if @accel.save
 	    	format.json { render status: 200, json: {
-			    message: "Successfully created todo list."
+			    message: "Successfully added user."
 			  }.to_json }
 	    else
 	    	format.json { render status: 500, json: {

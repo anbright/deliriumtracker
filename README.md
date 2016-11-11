@@ -27,6 +27,7 @@ Viewing details of a user account
 TODO: update latest features
 
 ##API
+<<<<<<< HEAD
 Send POST request to /api
 Include the ContentType: application/json header
 Format JSON:
@@ -37,3 +38,18 @@ Format JSON:
     "y": "0",
     "z": "0"
 }
+=======
+Send JSON Post request to /api.
+
+Make sure to include Content-Type:application/json in the header/
+
+{
+  "time": "1000",
+  "user_id": "1",
+  "x": "-9.8",
+  "y": "4.78",
+  "z":"1.00"
+}
+
+
+>>>>>>> 6037db8149ac48228759067de8e52dec15aa4b46
