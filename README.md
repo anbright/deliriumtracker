@@ -26,4 +26,15 @@ Viewing details of a user account
 ##Features:
 TODO: update latest features
 
+##API
+Send JSON Post request to /api.
+Make sure to include Content-Type:application/json in the header/
+{
+  "time": "1000",
+  "user_id": "1",
+  "x": "-9.8",
+  "y": "4.78",
+  "z":"1.00"
+}
+
 
