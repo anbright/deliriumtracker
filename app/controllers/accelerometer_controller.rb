@@ -1,4 +1,6 @@
 class AccelerometerController < ApplicationController
+	skip_before_action :verify_authenticity_token, only: :add_to_api
+	
 	def index
 		@data = Accelerometer.all
 	end
@@ -20,6 +22,22 @@ class AccelerometerController < ApplicationController
     
 	end
 	
+	def add_to_api
+		@accel = Accelerometer.new(api_params)
+		respond_to do |format|
+			if @accel.save
+	    	format.json { render status: 200, json: {
+			    message: "Successfully created todo list."
+			  }.to_json }
+	    else
+	    	format.json { render status: 500, json: {
+			    message: "Unable to save user.",
+					errors: @accel.errors
+			  }.to_json }
+	    end
+	  end
+	end
+	
 	def magnitude
 		@data = Accelerometer.all
 		mag = Array.new
@@ -37,6 +55,8 @@ class AccelerometerController < ApplicationController
 	
 	private 
 		def api_params
-			#params.require()
+			params.require(:accelerometer).permit(:time, :user_id, :x,
+                                   :y, :z)
+      
 		end
 end
