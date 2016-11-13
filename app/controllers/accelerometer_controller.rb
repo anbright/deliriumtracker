@@ -1,5 +1,6 @@
 class AccelerometerController < ApplicationController
 	skip_before_action :verify_authenticity_token, only: :add_to_api
+	before_action :verify_api_token, only: :add_to_api
 	
 	def index
 		@data = Accelerometer.all
@@ -57,6 +58,11 @@ class AccelerometerController < ApplicationController
 		def api_params
 			params.require(:accelerometer).permit(:time, :user_id, :x,
                                    :y, :z)
-      
+		end
+		
+		def verify_api_token
+			authenticate_or_request_with_http_token do |token, options|
+			  ApiKey.exists?(access_token: token)
+			end
 		end
 end

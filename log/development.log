@@ -17647,3 +17647,206 @@ Completed 200 OK in 163ms (Views: 0.2ms | ActiveRecord: 12.9ms)
             FROM sqlite_temp_master
             WHERE name='index_users_on_email' AND type='index'
 [0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateApiKeys (20161113020145)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (2.9ms)[0m  [1m[35mCREATE TABLE "api_keys" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "access_token" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20161113020145"]]
+  [1m[35m (10.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", :environment], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_accelerometers_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_accelerometers_on_user_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_patients_users_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_patients_users_on_user_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_patients_users_on_patient_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_patients_users_on_patient_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mApiKey Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "api_keys" WHERE "api_keys"."access_token" = ? LIMIT ?[0m  [["access_token", "ad9273e7d71fb08bc703cfba0196aefe"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "api_keys" ("access_token", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["access_token", "ad9273e7d71fb08bc703cfba0196aefe"], ["created_at", 2016-11-13 02:05:41 UTC], ["updated_at", 2016-11-13 02:05:41 UTC]]
+  [1m[35m (10.1ms)[0m  [1m[36mcommit transaction[0m
+Started POST "/api" for 165.123.197.95 at 2016-11-13 02:09:38 +0000
+Cannot render console from 165.123.197.95! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by AccelerometerController#add_to_api as */*
+  Parameters: {"time"=>"1000", "user_id"=>"1", "x"=>"0", "y"=>"0", "z"=>"0", "accelerometer"=>{"time"=>"1000", "x"=>"0", "y"=>"0", "z"=>"0", "user_id"=>"1"}}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (2.0ms)[0m  [1m[32mINSERT INTO "accelerometers" ("time", "x", "y", "z", "created_at", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["time", 1000], ["x", 0.0], ["y", 0.0], ["z", 0.0], ["created_at", 2016-11-13 02:09:39 UTC], ["updated_at", 2016-11-13 02:09:39 UTC], ["user_id", 1]]
+  [1m[35m (12.4ms)[0m  [1m[36mcommit transaction[0m
+Completed 200 OK in 90ms (Views: 0.6ms | ActiveRecord: 16.5ms)
+
+
+Started POST "/api" for 165.123.197.95 at 2016-11-13 02:09:55 +0000
+Cannot render console from 165.123.197.95! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by AccelerometerController#add_to_api as */*
+  Parameters: {"time"=>"1000", "user_id"=>"1", "x"=>"0", "y"=>"0", "z"=>"0", "accelerometer"=>{"time"=>"1000", "x"=>"0", "y"=>"0", "z"=>"0", "user_id"=>"1"}}
+  Rendering text template
+  Rendered text template (0.0ms)
+Filter chain halted as :verify_api_token rendered or redirected
+Completed 401 Unauthorized in 122ms (Views: 120.9ms | ActiveRecord: 0.9ms)
+
+
+Started POST "/api" for 165.123.197.95 at 2016-11-13 02:10:10 +0000
+Cannot render console from 165.123.197.95! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by AccelerometerController#add_to_api as */*
+  Parameters: {"time"=>"1000", "user_id"=>"1", "x"=>"0", "y"=>"0", "z"=>"0", "accelerometer"=>{"time"=>"1000", "x"=>"0", "y"=>"0", "z"=>"0", "user_id"=>"1"}}
+  Rendering text template
+  Rendered text template (0.0ms)
+Filter chain halted as :verify_api_token rendered or redirected
+Completed 401 Unauthorized in 3ms (Views: 2.2ms | ActiveRecord: 1.0ms)
+
+
+Started POST "/api" for 165.123.197.95 at 2016-11-13 02:12:25 +0000
+Cannot render console from 165.123.197.95! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by AccelerometerController#add_to_api as */*
+  Parameters: {"time"=>"1000", "user_id"=>"1", "x"=>"0", "y"=>"0", "z"=>"0", "accelerometer"=>{"time"=>"1000", "x"=>"0", "y"=>"0", "z"=>"0", "user_id"=>"1"}}
+  [1m[36mApiKey Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "api_keys" WHERE "api_keys"."access_token" = ? LIMIT ?[0m  [["access_token", "ad9273e7d71fb08bc703cfba0196aefe"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (1.3ms)[0m  [1m[32mINSERT INTO "accelerometers" ("time", "x", "y", "z", "created_at", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["time", 1000], ["x", 0.0], ["y", 0.0], ["z", 0.0], ["created_at", 2016-11-13 02:12:25 UTC], ["updated_at", 2016-11-13 02:12:25 UTC], ["user_id", 1]]
+  [1m[35m (11.1ms)[0m  [1m[36mcommit transaction[0m
+Completed 200 OK in 180ms (Views: 0.2ms | ActiveRecord: 14.0ms)
+
+
+Started POST "/api" for 165.123.197.95 at 2016-11-13 02:12:33 +0000
+Cannot render console from 165.123.197.95! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by AccelerometerController#add_to_api as */*
+  Parameters: {"time"=>"1000", "user_id"=>"1", "x"=>"0", "y"=>"0", "z"=>"0", "accelerometer"=>{"time"=>"1000", "x"=>"0", "y"=>"0", "z"=>"0", "user_id"=>"1"}}
+  Rendering text template
+  Rendered text template (0.0ms)
+Filter chain halted as :verify_api_token rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/api" for 165.123.197.95 at 2016-11-13 02:12:37 +0000
+Cannot render console from 165.123.197.95! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by AccelerometerController#add_to_api as */*
+  Parameters: {"time"=>"1000", "user_id"=>"1", "x"=>"0", "y"=>"0", "z"=>"0", "accelerometer"=>{"time"=>"1000", "x"=>"0", "y"=>"0", "z"=>"0", "user_id"=>"1"}}
+  [1m[36mApiKey Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "api_keys" WHERE "api_keys"."access_token" = ? LIMIT ?[0m  [["access_token", "ad9273e7d71fb08bc703cfba0196aefe"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "accelerometers" ("time", "x", "y", "z", "created_at", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["time", 1000], ["x", 0.0], ["y", 0.0], ["z", 0.0], ["created_at", 2016-11-13 02:12:37 UTC], ["updated_at", 2016-11-13 02:12:37 UTC], ["user_id", 1]]
+  [1m[35m (132.7ms)[0m  [1m[36mcommit transaction[0m
+Completed 200 OK in 141ms (Views: 0.2ms | ActiveRecord: 133.9ms)
+
+
+Started POST "/api" for 165.123.197.95 at 2016-11-13 02:19:37 +0000
+Cannot render console from 165.123.197.95! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by AccelerometerController#add_to_api as */*
+  Parameters: {"time"=>"1000", "user_id"=>"1", "x"=>"0", "y"=>"0", "z"=>"0", "accelerometer"=>{"time"=>"1000", "x"=>"0", "y"=>"0", "z"=>"0", "user_id"=>"1"}}
+  [1m[36mApiKey Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "api_keys" WHERE "api_keys"."access_token" = ? LIMIT ?[0m  [["access_token", "bafkdsadhfsaf"], ["LIMIT", 1]]
+  Rendering text template
+  Rendered text template (0.0ms)
+Filter chain halted as :verify_api_token rendered or redirected
+Completed 401 Unauthorized in 47ms (Views: 8.7ms | ActiveRecord: 1.1ms)
+
+
+Started POST "/api" for 165.123.197.95 at 2016-11-13 02:23:04 +0000
+Cannot render console from 165.123.197.95! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by AccelerometerController#add_to_api as */*
+  Parameters: {"time"=>"1000", "user_id"=>"1", "x"=>"0", "y"=>"0", "z"=>"0", "accelerometer"=>{"time"=>"1000", "x"=>"0", "y"=>"0", "z"=>"0", "user_id"=>"1"}}
+  [1m[36mApiKey Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "api_keys" WHERE "api_keys"."access_token" = ? LIMIT ?[0m  [["access_token", "bafkdsadhfsaf"], ["LIMIT", 1]]
+Filter chain halted as :verify_api_token rendered or redirected
+Completed 401 Unauthorized in 11ms (Views: 0.3ms | ActiveRecord: 2.8ms)
+
+
+Started POST "/api" for 165.123.197.95 at 2016-11-13 02:23:24 +0000
+Cannot render console from 165.123.197.95! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by AccelerometerController#add_to_api as */*
+  Parameters: {"time"=>"1000", "user_id"=>"1", "x"=>"0", "y"=>"0", "z"=>"0", "accelerometer"=>{"time"=>"1000", "x"=>"0", "y"=>"0", "z"=>"0", "user_id"=>"1"}}
+  [1m[36mApiKey Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "api_keys" WHERE "api_keys"."access_token" = ? LIMIT ?[0m  [["access_token", "bafkdsadhfsaf"], ["LIMIT", 1]]
+Filter chain halted as :verify_api_token rendered or redirected
+Completed 401 Unauthorized in 43ms (Views: 0.5ms | ActiveRecord: 1.1ms)
+
+
+Started POST "/api" for 165.123.197.95 at 2016-11-13 02:23:54 +0000
+Cannot render console from 165.123.197.95! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by AccelerometerController#add_to_api as */*
+  Parameters: {"time"=>"1000", "user_id"=>"1", "x"=>"0", "y"=>"0", "z"=>"0", "accelerometer"=>{"time"=>"1000", "x"=>"0", "y"=>"0", "z"=>"0", "user_id"=>"1"}}
+  [1m[36mApiKey Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "api_keys" WHERE "api_keys"."access_token" = ? LIMIT ?[0m  [["access_token", "bafkdsadhfsaf"], ["LIMIT", 1]]
+Filter chain halted as :verify_api_token rendered or redirected
+Completed 401 Unauthorized in 6ms (Views: 0.2ms | ActiveRecord: 1.0ms)
+
+
+Started POST "/api" for 165.123.197.95 at 2016-11-13 02:24:33 +0000
+Cannot render console from 165.123.197.95! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by AccelerometerController#add_to_api as */*
+  Parameters: {"time"=>"1000", "user_id"=>"1", "x"=>"0", "y"=>"0", "z"=>"0", "accelerometer"=>{"time"=>"1000", "x"=>"0", "y"=>"0", "z"=>"0", "user_id"=>"1"}}
+  [1m[36mApiKey Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "api_keys" WHERE "api_keys"."access_token" = ? LIMIT ?[0m  [["access_token", "bafkdsadhfsaf"], ["LIMIT", 1]]
+Filter chain halted as :verify_api_token rendered or redirected
+Completed 401 Unauthorized in 9ms (Views: 0.5ms | ActiveRecord: 1.3ms)
+
+
+Started POST "/api" for 165.123.197.95 at 2016-11-13 02:24:51 +0000
+Cannot render console from 165.123.197.95! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by AccelerometerController#add_to_api as */*
+  Parameters: {"time"=>"1000", "user_id"=>"1", "x"=>"0", "y"=>"0", "z"=>"0", "accelerometer"=>{"time"=>"1000", "x"=>"0", "y"=>"0", "z"=>"0", "user_id"=>"1"}}
+  [1m[36mApiKey Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "api_keys" WHERE "api_keys"."access_token" = ? LIMIT ?[0m  [["access_token", "ad9273e7d71fb08bc703cfba0196aefe"], ["LIMIT", 1]]
+  Rendering text template
+  Rendered text template (0.0ms)
+Filter chain halted as :verify_api_token rendered or redirected
+Completed 401 Unauthorized in 4ms (Views: 1.2ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/api" for 165.123.197.95 at 2016-11-13 02:25:23 +0000
+Cannot render console from 165.123.197.95! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by AccelerometerController#add_to_api as */*
+  Parameters: {"time"=>"1000", "user_id"=>"1", "x"=>"0", "y"=>"0", "z"=>"0", "accelerometer"=>{"time"=>"1000", "x"=>"0", "y"=>"0", "z"=>"0", "user_id"=>"1"}}
+  [1m[36mApiKey Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "api_keys" WHERE "api_keys"."access_token" = ? LIMIT ?[0m  [["access_token", "adfadfa"], ["LIMIT", 1]]
+Filter chain halted as :verify_api_token rendered or redirected
+Completed 401 Unauthorized in 2ms (Views: 0.2ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/api" for 165.123.197.95 at 2016-11-13 02:25:29 +0000
+Cannot render console from 165.123.197.95! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by AccelerometerController#add_to_api as */*
+  Parameters: {"time"=>"1000", "user_id"=>"1", "x"=>"0", "y"=>"0", "z"=>"0", "accelerometer"=>{"time"=>"1000", "x"=>"0", "y"=>"0", "z"=>"0", "user_id"=>"1"}}
+  [1m[36mApiKey Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "api_keys" WHERE "api_keys"."access_token" = ? LIMIT ?[0m  [["access_token", "ad9273e7d71fb08bc703cfba0196aefe"], ["LIMIT", 1]]
+  Rendering text template
+  Rendered text template (0.0ms)
+Filter chain halted as :verify_api_token rendered or redirected
+Completed 401 Unauthorized in 6ms (Views: 0.4ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/api" for 165.123.197.95 at 2016-11-13 02:25:47 +0000
+Cannot render console from 165.123.197.95! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by AccelerometerController#add_to_api as */*
+  Parameters: {"time"=>"1000", "user_id"=>"1", "x"=>"0", "y"=>"0", "z"=>"0", "accelerometer"=>{"time"=>"1000", "x"=>"0", "y"=>"0", "z"=>"0", "user_id"=>"1"}}
+  [1m[36mApiKey Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "api_keys" WHERE "api_keys"."access_token" = ? LIMIT ?[0m  [["access_token", "ad9273e7d71fb08bc703cfba0196aefe"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "accelerometers" ("time", "x", "y", "z", "created_at", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["time", 1000], ["x", 0.0], ["y", 0.0], ["z", 0.0], ["created_at", 2016-11-13 02:25:47 UTC], ["updated_at", 2016-11-13 02:25:47 UTC], ["user_id", 1]]
+  [1m[35m (12.0ms)[0m  [1m[36mcommit transaction[0m
+Completed 200 OK in 119ms (Views: 0.2ms | ActiveRecord: 14.3ms)
+
+
