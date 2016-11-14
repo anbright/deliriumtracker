@@ -10,8 +10,8 @@
 # 	{ name: 'foo', email: 'foo@bar.com', password_digest: User.digest('password')}
 # 	])
 
-User.create!(name: 'test', email: 'test@example.com', password_digest: User.digest('password'))
-User.create!(name: 'foo', email: 'foo@bar.com', password_digest: User.digest('password'))
+User.create!(name: 'test', email: 'test@example.com', password: 'password')
+User.create!(name: 'foo', email: 'foo@bar.com', password: 'password1')
 User.first.patients.create!(name: 'Joe Smith')
 
 
