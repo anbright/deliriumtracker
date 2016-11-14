@@ -4,7 +4,7 @@
     <nav>
       <ul class="nav navbar-nav navbar-right">
         <% if logged_in? %>
-          <li><%= link_to "Dashboard", root_path, title: "Dashboard" %></li>
+          <li><%= link_to "Dashboard", user_path(id: current_user.id), title: "Dashboard" %></li>
         <% end %>
         <li><%= link_to "Help", help_path, title: "Help"%></li>
         <% if logged_in? %>
