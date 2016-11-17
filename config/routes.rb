@@ -13,6 +13,8 @@ Rails.application.routes.draw do
 	get '/users/:id/add/:patient_id', to: 'users#add_patient'
 	get '/users/:id/remove/:patient_id', to: 'users#remove_patient'
 	
+	get '/patients/:id', to: 'patients#show'
+	
   resources :users
 
 end
