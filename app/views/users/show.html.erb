@@ -17,7 +17,7 @@
 		<tbody>
 			<% @patients.each do |p| %>
 				<tr>
-					<td><%= p.name %></td>
+					<td><%= link_to p.name, user_path %></td>
 					<td><%= link_to "Remove", :action => 'remove_patient', :id => @user.id, :patient_id => p.id %></td>
 				</tr>
 			<% end %>
