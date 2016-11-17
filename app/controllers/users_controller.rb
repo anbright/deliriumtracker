@@ -5,7 +5,6 @@ class UsersController < ApplicationController
 
   def show
   	@user = User.find(params[:id])
-    @data = User.find(params[:id]).accelerometers.all
     @patients = User.find(params[:id]).patients.all
     @other_patients = Patient.all - @patients
   end
