@@ -56,7 +56,7 @@ class AccelerometerController < ApplicationController
 	
 	private 
 		def api_params
-			params.require(:accelerometer).permit(:time, :user_id, :x,
+			params.require(:accelerometer).permit(:time, :patient_id, :x,
                                    :y, :z)
 		end
 		
