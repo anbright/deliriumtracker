@@ -14,13 +14,15 @@ User.create!(name: 'test', email: 'test@example.com', password: 'password')
 User.create!(name: 'foo', email: 'foo@bar.com', password: 'password')
 
 Patient.create!(name: 'Joe Smith')
-
+Patient.create!(name: 'Jane Doe')
+Patient.create!(name: 'Akshay Smith')
 
 
 ##Creating Accelerometer Data
 Accelerometer.create!(time: 0, patient_id: 1, x: 2.6340000629425, y:-0.143999993801116, z:9.61499977111816)
 
 time = Time.now.utc 
+ogtime = time
 
 def get_rand
 	rand(-10.0..10.0)
@@ -31,3 +33,16 @@ end
 	Accelerometer.create!(time: Time.at(time), patient_id: 1, x:get_rand, y:get_rand, z:get_rand)
 end
 
+time = ogtime
+
+5_000.times do
+	time += 5000
+	Accelerometer.create!(time: Time.at(time), patient_id: 2, x:get_rand, y:get_rand, z:get_rand)
+end
+
+time = ogtime
+
+5_000.times do
+	time += 5000
+	Accelerometer.create!(time: Time.at(time), patient_id: 3, x:get_rand, y:get_rand, z:get_rand)
+end
