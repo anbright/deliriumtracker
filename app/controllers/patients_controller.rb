@@ -2,17 +2,31 @@ class PatientsController < ApplicationController
     
     def patient_record
       	@patient = Patient.find(params[:id])
-      	@accel = Accelerometer.all
-      	@data
-      	@accel.each do |x|
-      	    if x.patient_id == 1
-      	        @xdata = x.x.abs
-      	        @ydata = x.y.abs
-      	        @zdata = x.z.abs
-      	        @total = @xdata + @ydata + @zdata
-      	        @data = @total / 3
-      	    end
-      	end
+      	@data = Accelerometer.all
+      	
+      	mag = magnitude
+        @avg_points = Array.new
+        @time = Array.new
+        timestamp = @data.pluck(:time)
+        while mag.count>0
+            @avg_points << average_min(mag.shift(12))
+            @time << timestamp.shift(12).first
+        end
     end
+    
+        
+    def magnitude
+        mag = Array.new
+        @data.each do |d|
+            mag << d.x.abs + d.y.abs + d.z.abs
+        end
+        return mag
+    end
+	
+    def average_min(mag)
+	      total = mag.inject(:+)
+  	    avg = total/mag.count
+	      return avg
+    end
+    
 end
-

@@ -2,8 +2,20 @@
 
 <p>insert graph here</p>    
 
-<p><%= @patient.name %>!</p>
-<p><%= @patient.id %>!</p>
-<p>XYZ: <%= @xdata %> <%= @ydata %> <%= @zdata %></p>
-<p>Average <%= @data %></p>
+<p><%= @patient.name %></p>
+<p><%= @patient.id %></p>
 
+<table>
+    <thead>
+        <th>Time</th>
+        <th>Average Value</th>
+    </thead>
+    <tbody>
+    <% @avg_points.each_with_index do |x, i| %>
+        <tr>
+            <td><%= @time[i]%></td>
+            <td><%= x%></td>
+        </tr>
+    <% end %>
+    </tbody>
+</table>
