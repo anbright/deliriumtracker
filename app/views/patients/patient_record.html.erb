@@ -1,11 +1,7 @@
-<h1>Patient Record Page</h1>
+<%= javascript_include_tag "https://www.google.com/jsapi" %>
+<h1>Patient Record Page:<%= @patient.name %></h1>
 
-<p>insert graph here</p>    
-
-<p><%= @patient.name %></p>
-<p><%= @patient.id %></p>
-
-<table>
+<!-- <table>
     <thead>
         <th>Time</th>
         <th>Average Value</th>
@@ -18,4 +14,7 @@
         </tr>
     <% end %>
     </tbody>
-</table>
+</table> -->
+
+<%= line_chart @hash %>
+
