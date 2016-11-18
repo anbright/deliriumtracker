@@ -12,6 +12,7 @@
 
 User.create!(name: 'test', email: 'test@example.com', password: 'password')
 User.create!(name: 'foo', email: 'foo@bar.com', password: 'password')
+
 User.first.patients.create!(name: 'Joe Smith')
 
 
