@@ -19,9 +19,8 @@ Patient.create!(name: 'Akshay Smith')
 
 
 ##Creating Accelerometer Data
-Accelerometer.create!(time: 0, patient_id: 1, x: 2.6340000629425, y:-0.143999993801116, z:9.61499977111816)
-
-time = Time.now.utc 
+#3 days ago
+time = Time.now - (3*24*60*60)
 ogtime = time
 
 def get_rand
@@ -29,20 +28,21 @@ def get_rand
 end
 
 5_000.times do
-	time += 5000
-	Accelerometer.create!(time: Time.at(time), patient_id: 1, x:get_rand, y:get_rand, z:get_rand)
+	#increments by 1 min
+	time += 60
+	Accelerometer.create!(time: time.to_i, patient_id: 1, x:get_rand, y:get_rand, z:get_rand)
 end
 
 time = ogtime
 
-5_000.times do
-	time += 5000
-	Accelerometer.create!(time: Time.at(time), patient_id: 2, x:get_rand, y:get_rand, z:get_rand)
-end
+# 5_000.times do
+# 	time += 60
+# 	Accelerometer.create!(time: time.to_i, patient_id: 2, x:get_rand, y:get_rand, z:get_rand)
+# end
 
-time = ogtime
+# time = ogtime
 
-5_000.times do
-	time += 5000
-	Accelerometer.create!(time: Time.at(time), patient_id: 3, x:get_rand, y:get_rand, z:get_rand)
-end
+# 5_000.times do
+# 	time += 60
+# 	Accelerometer.create!(time: time.to_i, patient_id: 3, x:get_rand, y:get_rand, z:get_rand)
+# end

@@ -1,20 +1,9 @@
 <%= javascript_include_tag "https://www.google.com/jsapi" %>
-<h1>Patient Record Page:<%= @patient.name %></h1>
+<h1>Patient Record Page: <%= @patient.name %></h1>
+<p>Collected <%= @days %> days of data</p>
 
-<!-- <table>
-    <thead>
-        <th>Time</th>
-        <th>Average Value</th>
-    </thead>
-    <tbody>
-    <% @avg_points.each_with_index do |x, i| %>
-        <tr>
-            <td><%= @time[i]%></td>
-            <td><%= x%></td>
-        </tr>
-    <% end %>
-    </tbody>
-</table> -->
 
-<%= line_chart @hash %>
+<% @hashes.each do |h| %>
+    <%= line_chart h, width: "800px", height: "200px"%>
+<% end %>
 
