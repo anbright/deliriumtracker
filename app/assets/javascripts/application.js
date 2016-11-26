@@ -17,3 +17,4 @@
 //= require Chart
 //= require Chart.bundle
 //= require chartkick
+//= require jquery-ui

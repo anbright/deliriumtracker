@@ -1,13 +1,26 @@
 class PatientsController < ApplicationController
 
-  #Time.at(Accelerometer.first.time)
   DAY = 24*60*60
     
     def patient_record
       	@patient = Patient.find(params[:id])
       	@data = Accelerometer.all
+        @last_time = @patient.accelerometers.last.time
+        @first_time = @patient.accelerometers.first.time
 
-        @days = (@patient.accelerometers.last.time - @patient.accelerometers.first.time) / (DAY)
+        @max = Time.at(@last_time).at_end_of_day.to_i
+        @min = Time.at(@last_time).at_beginning_of_day.to_i
+
+        Rails.logger.debug params.inspect
+        if params.has_key?(:range) && !params[:range][:to].empty? && !params[:range][:from].empty? 
+          @to = params[:range][:to].to_i
+          @from = params[:range][:from].to_i
+        else
+          @to = Time.at(@last_time).at_end_of_day.to_i
+          @from = Time.at(@last_time).at_beginning_of_day.to_i
+        end
+
+        @days = (@last_time - @first_time) / (DAY)
 
         @hashes = get_array_of_hash_days(@days)
 
@@ -17,7 +30,7 @@ class PatientsController < ApplicationController
       hashes = Array.new
       i = 0
       while i < days
-        hashes << get_time_hash(get_data(Time.now.at_beginning_of_day() - i*DAY,Time.now.at_end_of_day() - i*DAY))
+        hashes << get_time_hash(get_data(Time.at(@from) - i*DAY, Time.at(@to) - i*DAY))
         i += 1
       end
       hashes

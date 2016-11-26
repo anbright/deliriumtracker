@@ -1,9 +1,23 @@
 <%= javascript_include_tag "https://www.google.com/jsapi" %>
+<%= javascript_include_tag('slider.js') %>
 <h1>Patient Record Page: <%= @patient.name %></h1>
 <p>Collected <%= @days %> days of data</p>
 
+<%= content_tag :div, class: "data_range", data: {max: @max, min: @min, from: @from, to: @to } do %>
+<% end %>
+
+<p>From: <%= @from %></p>
+<p>To: <%= @to %></p>
+
+<div id="slider"></div>
+<%= form_tag(patient_page_path, method: "get") do %>
+  <%= hidden_field(:range, :from, :id => "slider_from") %>
+	<%= hidden_field(:range, :to, :id => "slider_to") %>
+  <%= submit_tag("Search") %>
+<% end %>
 
 <% @hashes.each do |h| %>
-    <%= line_chart h, width: "800px", height: "200px"%>
+	<div id="slider"></div>
+  <%= line_chart h, width: "800px", height: "200px"%>
 <% end %>
 
