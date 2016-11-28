@@ -1,13 +1,13 @@
 <%= javascript_include_tag "https://www.google.com/jsapi" %>
 <%= javascript_include_tag('slider.js') %>
-<h1>Patient Record Page: <%= @patient.name %></h1>
-<p>Collected <%= @days %> days of data</p>
+<h1><%= @patient.name %></h1>
+<p>Collected <%= @days %> total days of data</p>
 
 <%= content_tag :div, class: "data_range", data: {max: @max, min: @min, from: @from, to: @to } do %>
 <% end %>
 
-<p>From: <%= @from %></p>
-<p>To: <%= @to %></p>
+<p>From: <%= Time.at(@from) %></p>
+<p>To: <%= Time.at(@to) %></p>
 
 <div id="slider"></div>
 <%= form_tag(patient_page_path, method: "get") do %>

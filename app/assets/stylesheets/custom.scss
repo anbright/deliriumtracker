@@ -1,6 +1,44 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+html {
+    
+}
+
 body { 
     padding-top: 70px;
+}
+
+form {
+    margin: 20px 0 5px 0;
+    
+}
+
+label {
+    margin-top: 5px;
+}
+
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+h2 {
+    font-size: 20px;
+    
+}
+
+td {
+    padding: 5px;
+}
+
+.button-space {
+    margin-top: 10px;
+}
+
+#dash_welcome {
+    font-size: 20px;
+    margin-top: 20px;
+    
 }

@@ -7,6 +7,9 @@ class UsersController < ApplicationController
   	@user = User.find(params[:id])
     @patients = User.find(params[:id]).patients.all
     @other_patients = Patient.all - @patients
+    
+    #need to add calculation of data collected in the last 24 hrs
+
   end
   
   #/users/:id/add_patient/:patient_id

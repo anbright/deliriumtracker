@@ -2,7 +2,7 @@
   <aside class="col-md-4">
     <section class="user_info">
         <%if logged_in? %>
-        	<p>Welcome to the user dashboard, <%= @user.name %>!</p>
+        	<p id="dash_welcome">Welcome to your dashboard, <%= @user.name %>!</p>
         <%end%>
     </section>
   </aside>
@@ -11,13 +11,21 @@
 <% if logged_in? && current_user == @user %>
 	<h2>Current Patients</h2>
 	<table>
-		<thead>
-		  <th>Patient Name</th>
-		</thead>
+		 <!-- <thead>
+		   <th>Patient Name</th>
+		</thead> -->
 		<tbody>
 			<% @patients.each do |p| %>
 				<tr>
-					<td><%= link_to p.name, patient_page_path %></td>
+					<td style="width: 50px">
+						<img src=/assets/patient.PNG alt="Patient" style="width:50px;">
+					    <div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:70%">
+					    	70%
+					    </div>
+					</td>
+					<td style="width: 100px">
+						<%= link_to p.name, patient_page_path %>
+					</td>
 					<td><%= link_to "Remove", :action => 'remove_patient', :id => @user.id, :patient_id => p.id %></td>
 				</tr>
 			<% end %>
@@ -25,13 +33,10 @@
 	</table>
 	
 	<h2>All Patients</h2>
-	
-	
-	
 	<table>
-		<thead>
-		  <th>Patient Name</th>
-		</thead>
+		 <!-- <thead>
+		   <th>Patient Name</th>
+		</thead> -->
 		<tbody>
 			<% @other_patients.each do |p| %>
 				<tr>
