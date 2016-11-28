@@ -18,7 +18,7 @@ When (/^I fill the email and password fields and login$/) do
 end
 
 Then (/^I should be able to sign in successfully and route to my dashboard$/) do
-	assert page.has_content?("Welcome to the user dashboard")
+	assert page.has_content?("Welcome to your dashboard")
 end
 
 

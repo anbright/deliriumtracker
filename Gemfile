@@ -45,6 +45,7 @@ group :development, :test do
   gem 'capybara'
   gem 'launchy'
   gem 'sqlite3'
+  gem 'factory_girl_rails'
 end
 
 group :development do
