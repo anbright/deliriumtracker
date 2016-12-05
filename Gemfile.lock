@@ -228,7 +228,7 @@ DEPENDENCIES
   jquery-ui-rails (~> 5.0, >= 5.0.5)
   launchy
   listen (~> 3.0.5)
-  pg (= 0.18.4)
+  pg
   puma (~> 3.0)
   rails (~> 5.0.0, >= 5.0.0.1)
   sass-rails (~> 5.0)
