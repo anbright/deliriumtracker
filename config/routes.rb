@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 	
+  get 'heartrate/add_to_api'
+
 	root 'sessions#new'
 	
 	get '/sign-up', to: 'users#new'
