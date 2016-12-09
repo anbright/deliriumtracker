@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161117230736) do
+ActiveRecord::Schema.define(version: 20161209171046) do
 
   create_table "accelerometers", force: :cascade do |t|
     t.integer  "time",       limit: 8
@@ -29,10 +29,21 @@ ActiveRecord::Schema.define(version: 20161117230736) do
     t.datetime "updated_at",   null: false
   end
 
+  create_table "heartrates", force: :cascade do |t|
+    t.integer  "patient_id"
+    t.integer  "patient_num"
+    t.integer  "value"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["patient_id"], name: "index_heartrates_on_patient_id"
+  end
+
   create_table "patients", force: :cascade do |t|
     t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.integer  "patient_num"
+    t.index ["patient_num"], name: "index_patients_on_patient_num", unique: true
   end
 
   create_table "patients_users", force: :cascade do |t|

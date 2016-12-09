@@ -3,4 +3,5 @@ class Patient < ApplicationRecord
 	has_many :accelerometers
 	has_many :heartrates
 	validates :name, presence: true, length: { maximum: 50 }
+	validates :patient_num, presence: true
 end
