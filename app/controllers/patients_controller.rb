@@ -48,7 +48,7 @@ class PatientsController < ApplicationController
       #Averages the value of 12 data points and associates the time
       # with the first data points time
       while mag.count>0
-        @avg_points << average_min(mag.shift(12))
+        @avg_points << average_min(mag.shift(12)).round(2)
         @time << Time.at(timestamp.shift(12).first)
       end
       @first = @avg_points.first(5)

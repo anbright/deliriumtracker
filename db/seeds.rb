@@ -13,9 +13,9 @@
 User.create!(name: 'test', email: 'test@example.com', password: 'password')
 User.create!(name: 'foo', email: 'foo@bar.com', password: 'password')
 
-Patient.create!(name: 'Joe Smith')
-Patient.create!(name: 'Jane Doe')
-Patient.create!(name: 'Akshay Smith')
+Patient.create!(name: 'Joe Smith', patient_num: 1)
+Patient.create!(name: 'Jane Doe', patient_num: 2)
+Patient.create!(name: 'Akshay Smith', patient_num: 3)
 
 
 ##Creating Accelerometer Data
