@@ -13,6 +13,7 @@ Rails.application.routes.draw do
 	get '/help', to: 'users#help'
 	get '/data', to: 'accelerometer#index'
 	# get '/api', to: 'accelerometer#api', defaults: { format: 'json' }
+	get '/patients/:id/heartrates', to: 'heartrate#get_heartrates'
 	post '/api/accelerometer', to: 'accelerometer#add_to_api'
 	post '/api/heartrate', to: 'heartrate#add_to_api'
 	get '/users/:id/add/:patient_id', to: 'users#add_patient'

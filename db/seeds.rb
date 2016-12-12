@@ -31,7 +31,7 @@ end
 	#increments by 1 min
 	time += 60
 	Accelerometer.create!(time: time.to_i, patient_id: 1, x:get_rand, y:get_rand, z:get_rand)
-	Heartrate.create!(value: get_rand, patient_num: 1)
+	Heartrate.create!(value: get_rand, patient_num: 1, patient_id: 1, time: Time.now)
 end
 
 time = ogtime

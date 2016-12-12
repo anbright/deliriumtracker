@@ -21,7 +21,9 @@ class HeartrateController < ApplicationController
   end
   
   def get_heartrates
-    
+    @patient = Patient.find(params[:id])
+    @data = Hash.new
+    @patient.heartrates.map { |e| @data.store(Time.at(e.time), e.value) }
   end
   
   private 
