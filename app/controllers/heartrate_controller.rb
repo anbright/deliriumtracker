@@ -1,5 +1,6 @@
 class HeartrateController < ApplicationController
   skip_before_action :verify_authenticity_token, only: :add_to_api
+  before_action :verify_api_token, only: :add_to_api
   
   def add_to_api
     @hr = Heartrate.new(api_params)
@@ -27,4 +28,10 @@ class HeartrateController < ApplicationController
 		def get_patient(num)
       Patient.where(patient_num: num)
     end
+    
+    def verify_api_token
+			authenticate_or_request_with_http_token do |token, options|
+			  ApiKey.exists?(access_token: token)
+			end
+		end
 end
