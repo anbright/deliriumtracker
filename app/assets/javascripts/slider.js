@@ -1,4 +1,4 @@
-$(document).ready(function() {
+var ready = function() {
     var max = $(".data_range").data("max");
     var min = $(".data_range").data("min");
     var from = $(".data_range").data("from");
@@ -14,4 +14,7 @@ $(document).ready(function() {
             $("#slider_to").val(ui.values[1]);
         }
     });
-});
+};
+
+$(document).ready(ready);
+$(document).on('turbolinks:load', ready);
