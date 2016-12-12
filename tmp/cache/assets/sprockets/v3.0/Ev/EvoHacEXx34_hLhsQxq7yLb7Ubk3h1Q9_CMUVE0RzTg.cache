@@ -1,10 +1,0 @@
-{:uriI"‚file://app/assets/stylesheets/DBOperations.txt?type=text/plain&id=6addd3bc7b8ddba59eedd6fe2a94b5c82ce696426e9923a80d52aa0e91344b24:ET:load_pathI"app/assets/stylesheets;T:filenameI",app/assets/stylesheets/DBOperations.txt;T:	nameI"DBOperations;T:logical_pathI"DBOperations.txt;T:content_typeI"text/plain;T:sourceI"œ1. Select -> rows
-2. Project -> columns
-3. Join
-	Combines all permutations of the two tables
-	e.g. Artist.first.songs.joins(:reviews).where("rating > ?", 3);T:metadata{	:dependencieso:Set:
-@hash}
-I"environment-version;TTI"environment-paths;TTI"rails-env;TTI"4processors:type=text/plain&file_type=text/plain;TTI":file-digest://app/assets/stylesheets/DBOperations.txt;TTF:charsetI"
-utf-8;F:digest"%Éšxp;tpŠK§&^ÄÙ¦÷fcK`œrÅIys:lengthiœ:dependencies_digest"%"=;O
-·Fõ]İ'E=½NµÎ«Ë‘6»/†ú;É:idI"E6addd3bc7b8ddba59eedd6fe2a94b5c82ce696426e9923a80d52aa0e91344b24;F:
-mtimel+s£X
