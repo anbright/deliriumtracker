@@ -20,6 +20,10 @@ class HeartrateController < ApplicationController
     end
   end
   
+  def get_heartrates
+    
+  end
+  
   private 
 		def api_params
 			params.require(:heartrate).permit(:patient_num, :value)
