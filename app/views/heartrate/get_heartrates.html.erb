@@ -1,4 +1,4 @@
-<h1><%= @patient.name %></h1>
-
+<h1><%= @patient.patient_num %></h1>
+<%= link_to "Accelerometer Data", patient_page_path %><br/><br/>
 <%= line_chart @data, width: "800px", height: "200px"%>
 

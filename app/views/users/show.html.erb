@@ -24,7 +24,7 @@
 					    </div>
 					</td>
 					<td style="width: 100px">
-						<%= link_to p.name, patient_page_path %>
+						<%= link_to p.patient_num, patient_page_path %>
 					</td>
 					<td><%= link_to "Remove", :action => 'remove_patient', :id => @user.id, :patient_id => p.id %></td>
 				</tr>
@@ -40,7 +40,7 @@
 		<tbody>
 			<% @other_patients.each do |p| %>
 				<tr>
-					<td><%= p.name %></td>
+					<td><%= p.patient_num %></td>
 					<td><%= link_to "Follow", :action => 'add_patient', :id => @user.id, :patient_id => p.id %></td>
 				</tr>
 			<% end %>

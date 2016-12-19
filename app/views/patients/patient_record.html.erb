@@ -1,6 +1,7 @@
 <%= javascript_include_tag "https://www.google.com/jsapi" %>
 <%= javascript_include_tag('slider.js') %>
-<h1><%= @patient.name %></h1>
+<h1><%= @patient.patient_num %></h1>
+<%= link_to "Heartrate", :controller =>"heartrate", :action => "get_heartrates" %>
 <p>Collected <%= @days %> total days of data</p>
 
 <%= content_tag :div, class: "data_range", data: {max: @max, min: @min, from: @from, to: @to } do %>

@@ -4,7 +4,7 @@
 Online platform to help Providers track Patients' activities in hospital. Data collected from AndroidWear watches is visualized for Providers to see recent activity and help diagnose potential delirium.
 
 ## Current Status
-Heroku: https:/deliriumtracker.herokuapp.com/
+
 
 ## Team Members:
 Andrew Bright  
@@ -14,20 +14,28 @@ PM: Minsu Kim
 
 ## Pages
 
+### Dashboard
+View the research ids of current patients and add/remove patients to follow
+route: /users/:id
+
+### Patient
+View the accelerometer and heartrate data of a particular patient
+/patient/:id for accelerometer dat
+
 ### Sign-Up
 Sign-Up allows users to sign up and redirects user to user page
 
 ### Login
 Allows users to login to their accounts
 
-### users/:id 
-Viewing details of a user account
 
-##Features:
-TODO: update latest features
 
 ##API
-Send JSON Post request to /api.
+Endpoints:
+Accelerometer data -> /api/accelerometer
+Heartrate data -> /api/heartrate
+
+Format: JSON post request
 
 Headers:
 Content-Type:application/json
@@ -40,5 +48,7 @@ Authentication: Token token=1234566789
   "y": "4.78",
   "z":"1.00"
 }
+
+Create apikey in rails with ApiKey.create! command in rails console
 
 
