@@ -16,5 +16,15 @@ var ready = function() {
     });
 };
 
-$(document).ready(ready);
-$(document).on('turbolinks:load', ready);
+var ready2 = function() {
+    $('#datetimepicker3').datetimepicker({
+        format: 'LT'
+    });
+}
+
+var updateFields = function() {
+     $("#slider_from").val(this.value);
+}
+
+$(document).ready(ready2);
+$(document).on('turbolinks:load', ready2);

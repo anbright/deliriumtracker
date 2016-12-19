@@ -4,7 +4,8 @@
 Online platform to help Providers track Patients' activities in hospital. Data collected from AndroidWear watches is visualized for Providers to see recent activity and help diagnose potential delirium.
 
 ## Current Status
-
+Deployed on heroku: http://deliriumtracker.herokuapp.com
+Monitoring with NewRelic
 
 ## Team Members:
 Andrew Bright  

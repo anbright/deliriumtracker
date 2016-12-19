@@ -10,11 +10,12 @@
 <p>From: <%= Time.at(@from) %></p>
 <p>To: <%= Time.at(@to) %></p>
 
-<div id="slider" style="width:100%; height:20px"></div>
 <%= form_tag(patient_page_path, method: "get") do %>
-  <%= hidden_field(:range, :from, :id => "slider_from") %>
-	<%= hidden_field(:range, :to, :id => "slider_to") %>
-  <%= submit_tag("Search") %>
+  <%= label_tag(:from, "From:") %>
+  <%= text_field_tag(:from, "12:00AM") %>
+  <%= label_tag(:to, "To:") %>
+  <%= text_field_tag(:to, "11:59PM") %>
+  <%= submit_tag("Search") %>
 <% end %>
 
 <% @hashes.each do |h| %>

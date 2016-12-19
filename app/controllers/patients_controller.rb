@@ -12,9 +12,9 @@ class PatientsController < ApplicationController
         @min = Time.at(@last_time).at_beginning_of_day.to_i
 
         Rails.logger.debug params.inspect
-        if params.has_key?(:range) && !params[:range][:to].empty? && !params[:range][:from].empty? 
-          @to = params[:range][:to].to_i
-          @from = params[:range][:from].to_i
+        if params.has_key?(:to) && params.has_key?(:from)
+          @to = params[:to].to_time.to_i
+          @from = params[:from].to_time.to_i
         else
           @to = Time.at(@last_time).at_end_of_day.to_i
           @from = Time.at(@last_time).at_beginning_of_day.to_i
