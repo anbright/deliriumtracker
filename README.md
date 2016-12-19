@@ -31,11 +31,11 @@ Allows users to login to their accounts
 
 
 ##API
-Endpoints:
-Accelerometer data -> /api/accelerometer
-Heartrate data -> /api/heartrate
+### Endpoints:
+Accelerometer data -> /api/accelerometer  
+Heartrate data -> /api/heartrate  
 
-Format: JSON post request
+### Format: JSON post request
 
 Headers:
 Content-Type:application/json
